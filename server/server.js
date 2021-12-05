@@ -31,7 +31,6 @@ const { MongoClient } = require("mongodb");
 
   console.log(`HTTP Listening on ${process.env.PORT}`);
 
-<<<<<<< HEAD
   // const insert = await mongo.db('stocks').collection("documents").insertMany([{a: 1}, {b: 2}, {c: 3}])
   // console.log('Inserted documents', insert)
 
@@ -53,6 +52,4 @@ const { MongoClient } = require("mongodb");
   
 
 
-=======
->>>>>>> 9684ffe410fd2d994c7b75060c7566f9db3168d1
 })();
