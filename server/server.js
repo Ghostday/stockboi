@@ -26,6 +26,25 @@ const { MongoClient } = require("mongodb");
 
   console.log(`HTTP Listening on ${process.env.PORT}`);
 
-  const insert = await mongo.db('stocks').collection("documents").insertMany([{a: 1}, {b: 2}, {c: 3}])
-  console.log('Inserted documents', insert)
+  // const insert = await mongo.db('stocks').collection("documents").insertMany([{a: 1}, {b: 2}, {c: 3}])
+  // console.log('Inserted documents', insert)
+
+  app.get('/stocks', (req, res) => {
+    return res.send('GET HTTP method on user resource');
+  });
+  
+  app.post('/stocks', (req, res) => {
+    return res.send('POST HTTP method on user resource');
+  });
+  
+  app.put('/stocks', (req, res) => {
+    return res.send('PUT HTTP method on user resource');
+  });
+  
+  app.delete('/users', (req, res) => {
+    return res.send('DELETE HTTP method on user resource');
+  });
+  
+
+
 })();
