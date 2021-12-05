@@ -23,9 +23,15 @@ const { MongoClient } = require("mongodb");
 
   app.use(express.static(path.join(__dirname, '../dist')));
   app.listen(process.env.PORT);
+  app.get('/stocks/submit', function (req, res) {
+    const insert = mongo.db('stocks').collection("documents").insertMany([{a: 1}, {b: 2}, {c: 3}])
+    res.send("documents added:", insert)  
+    // res.send("heyy")
+  })
 
   console.log(`HTTP Listening on ${process.env.PORT}`);
 
+<<<<<<< HEAD
   // const insert = await mongo.db('stocks').collection("documents").insertMany([{a: 1}, {b: 2}, {c: 3}])
   // console.log('Inserted documents', insert)
 
@@ -47,4 +53,6 @@ const { MongoClient } = require("mongodb");
   
 
 
+=======
+>>>>>>> 9684ffe410fd2d994c7b75060c7566f9db3168d1
 })();
