@@ -1,6 +1,6 @@
-if (process.env.NODE_ENV !== 'production') {
+// if (process.env.NODE_ENV !== 'production') {
   require("dotenv").config();
-}
+// }
 
 const path = require("path");
 const express = require("express");
@@ -23,33 +23,35 @@ const { MongoClient } = require("mongodb");
 
   app.use(express.static(path.join(__dirname, '../dist')));
   app.listen(process.env.PORT);
+  
+  // const insert = mongo.db('stocks').collection("documents").insertMany([{a: 100}, {b: 200}, {c: 300}])
   app.get('/stocks/submit', function (req, res) {
-    const insert = mongo.db('stocks').collection("documents").insertMany([{a: 1}, {b: 2}, {c: 3}])
     res.send("documents added:", insert)  
     // res.send("heyy")
   })
 
   console.log(`HTTP Listening on ${process.env.PORT}`);
 
-  // const insert = await mongo.db('stocks').collection("documents").insertMany([{a: 1}, {b: 2}, {c: 3}])
+  // const insert = await mongo.db('stocks').collection("uptrending").insertMany([{ticker: "AAPL", currentPrice: 200, trendingPercent: 2}, {Name: "Chris"}, {AAPL: 300}])
   // console.log('Inserted documents', insert)
-
-  app.get('/stocks', (req, res) => {
-    return res.send('GET HTTP method on user resource');
-  });
+ 
+  // app.get('/stocks', (req, res) => {
+  //   return res.send('GET HTTP method on user resource');
+  // });
   
-  app.post('/stocks', (req, res) => {
-    return res.send('POST HTTP method on user resource');
-  });
+  // app.post('/stocks', (req, res) => {
+  //   return res.send('POST HTTP method on user resource');
+  // });
   
-  app.put('/stocks', (req, res) => {
-    return res.send('PUT HTTP method on user resource');
-  });
+  // app.put('/stocks', (req, res) => {
+  //   return res.send('PUT HTTP method on user resource');
+  // });
   
-  app.delete('/users', (req, res) => {
-    return res.send('DELETE HTTP method on user resource');
-  });
+  // app.delete('/users', (req, res) => {
+  //   return res.send('DELETE HTTP method on user resource');
+  // });
   
 
 
 })();
+

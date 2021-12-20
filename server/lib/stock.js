@@ -12,19 +12,38 @@ class Stock {
     
 }
 
-import StockFetch from '../exampleResponse.json'
+import StockData from '../exampleResponse.json'
 
-const stockData = StockFetch.tickers
-console.log(stockData.length)
-let stocksInUse = stockData.filter((ticker) => {
+console.log(StockData.tickers.length)
+StockData.tickers[1]
+
+const filteredData = StockData.tickers.filter(ticker => {
     return ticker.todaysChange != 0
 })
-stocksInUse //
 
-console.log(stocksInUse.length)
+console.log(filteredData.length)
+filteredData[0] //
 
-let stocksUptrending = stocksInUse.filter((ticker) => {
-    return ticker.todaysChange > 0
+const uptrending = filteredData.filter(stock => {
+    return stock.todaysChangePerc > 0
 })
 
-stocksUptrending.length
+const downtrending = filteredData.filter(stock => {
+    return stock.todaysChangePerc < 0
+})
+
+const corrections = filteredData.filter(stock => {
+    return stock.todaysChangePerc < -10
+})
+
+
+console.log(uptrending.length)
+console.log(downtrending.length)
+console.log(corrections.length)
+console.log(corrections[1])
+
+
+
+
+
+
