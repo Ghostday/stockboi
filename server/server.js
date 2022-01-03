@@ -35,9 +35,13 @@ const { MongoClient } = require("mongodb");
   // const insert = await mongo.db('stocks').collection("uptrending").insertMany([{ticker: "AAPL", currentPrice: 200, trendingPercent: 2}, {Name: "Chris"}, {AAPL: 300}])
   // console.log('Inserted documents', insert)
  
-  // app.get('/stocks', (req, res) => {
-  //   return res.send('GET HTTP method on user resource');
-  // });
+  app.get('/stocks', async (req, res) => {
+    const documents = await mongo.db('stocks').collection("uptrending").find({ticker: "AAPL"})
+    documents.forEach(doc => JSON.stringify(doc))
+    console.log('Updated documents', documents)
+    res.send(documents);
+
+  });
   
   // app.post('/stocks', (req, res) => {
   //   return res.send('POST HTTP method on user resource');
