@@ -13,9 +13,9 @@ export default function Stock({stock}) {
     })
 
     return (
-        <div>
-            <h2>{stock}</h2>
-            <h4>{price}</h4>
+        <div className="top-stock">
+            <p className="stock-name">{stock}</p>
+            <p className="stock-price">{price}</p>
         </div>
     )
 }

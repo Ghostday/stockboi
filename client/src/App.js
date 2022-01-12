@@ -1,6 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 import StockList from './Components/StockList'
+import Whatever from './Components/NewStockList'
+
+
 
 function App() {
   
@@ -8,10 +10,9 @@ function App() {
   return (
     <div className="App">
     <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
 
       </header>
-      <StockList/>
+      <Whatever />
     </div>
   );
 }
