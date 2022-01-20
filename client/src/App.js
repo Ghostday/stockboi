@@ -2,8 +2,6 @@ import './App.css';
 import StockList from './Components/StockList'
 import Whatever from './Components/NewStockList'
 
-
-
 function App() {
   
 

@@ -17,30 +17,60 @@ import StockData from '../exampleResponse.json'
 console.log(StockData.tickers.length)
 StockData.tickers[1]
 
-const filteredData = StockData.tickers.filter(ticker => {
-    return ticker.todaysChange != 0
-})
+const filterData = function(data) {
+    let filteredData = data.filter(ticker => {
+        return ticker.todaysChange != 0
+    })
+    return filteredData
+}
 
-console.log(filteredData.length)
-filteredData[0] //
+const fetchYesterday = function(ticker) {
+    fetch(`https://api.polygon.io/v2/aggs/ticker/${ticker}/prev?adjusted=true&apiKey=${APIKey}`)
+    .then(data => data.json())
+    .then(data => {
+        let result = data.results[0].c
+        return result
+    })    
+}
 
-const uptrending = filteredData.filter(stock => {
-    return stock.todaysChangePerc > 0
-})
+const findUptrends = function(data) {
+    let filteredData = data.filter(ticker => {
+        return ticker.todaysChange > 0.1
+    })
+    filteredData.forEach(ticker => {
+        if (fetchYesterday(ticker) > ticker.todaysChange) {
+            putInDatabase(trend, ticker)
+        }
+    })
 
-const downtrending = filteredData.filter(stock => {
-    return stock.todaysChangePerc < 0
-})
-
-const corrections = filteredData.filter(stock => {
-    return stock.todaysChangePerc < -10
-})
+    return filteredData
+}
 
 
-console.log(uptrending.length)
-console.log(downtrending.length)
-console.log(corrections.length)
-console.log(corrections[1])
+console.log(findUptrends(filterData(StockData.tickers)))
+
+
+
+// console.log(filteredData.length)
+// filteredData[0]
+
+// const uptrending = filteredData.filter(stock => {
+//     return stock.todaysChangePerc > 0
+// })
+
+// const downtrending = filteredData.filter(stock => {
+//     return stock.todaysChangePerc < 0
+// })
+
+// const corrections = filteredData.filter(stock => {
+//     return stock.todaysChangePerc < -10
+// })
+
+
+// console.log(uptrending.length)
+// console.log(downtrending.length)
+// console.log(corrections.length)
+// console.log(corrections[1])
 
 
 

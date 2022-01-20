@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import APIKEY from '../api'
 
 export default function Stock({stock}) {
     const [price, setPrice] = useState(false)

@@ -27,7 +27,7 @@ exponentialMovingAverage([500, 200, 500, 400, 100, 600])
 
 
 
-const results = [75, 23, 89, 23, 65]
+// const results = [75, 23, 89, 23, 65]
 
 // let average = results[0] + results[1] + results[2] + results[3] + results[4]
 // console.log(average / results.length)
@@ -39,9 +39,9 @@ const results = [75, 23, 89, 23, 65]
 // console.log(average)
 
 
-let average = 0
-for (let i = 0; i < results.length; i++) {
-    average += results[i]
-}
-average = average / results.length
-console.log(average)
+// let average = 0
+// for (let i = 0; i < results.length; i++) {
+//     average += results[i]
+// }
+// average = average / results.length
+// console.log(average)
