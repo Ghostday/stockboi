@@ -12,7 +12,9 @@ Application has a React Front-End for the Web GUI and an Express.js Back-end Ser
 
 ### APIs in Use
 [Polygon.io Stocks](https://polygon.io/)
+
 [Polygon.io Crypto](https://polygon.io/) *WIP*
+
 [Alpaca Markets](https://alpaca.markets/)
 
 
