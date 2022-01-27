@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react"
+import APIKEY from '../api'
+import Loader from './Loader'
+
 
 export default function Stock({stock}) {
     const [price, setPrice] = useState(false)
     
     useEffect(() => {
-        fetch(`https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/tickers/${stock}?apiKey=g2xdpDPCcfjpzTny8bEKKVpseRkmWNBd`)
+        fetch(`https://api.polygon.io/v2/snapshot/locale/us/markets/stocks/tickers/${stock}?apiKey=${APIKEY}`)
         .then(data => data.json())
         .then(data => {
             console.log(data)
@@ -14,8 +17,8 @@ export default function Stock({stock}) {
 
     return (
         <div>
-            <h2>{stock}</h2>
-            <h4>{price}</h4>
+            <p className="stock-name">{stock}</p>
+            <p className="stock-price">{price}</p>
         </div>
     )
 }
