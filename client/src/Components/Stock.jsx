@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react"
 import APIKEY from '../api'
+<<<<<<< HEAD
 import Loader from './Loader'
 
+=======
+>>>>>>> 3ce43e2a024548ed438056ab1bce53a95b1e14be
 
 export default function Stock({stock}) {
     const [price, setPrice] = useState(false)
@@ -16,7 +19,11 @@ export default function Stock({stock}) {
     })
 
     return (
+<<<<<<< HEAD
         <div>
+=======
+        <div className="top-stock">
+>>>>>>> 3ce43e2a024548ed438056ab1bce53a95b1e14be
             <p className="stock-name">{stock}</p>
             <p className="stock-price">{price}</p>
         </div>
