@@ -2,7 +2,7 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "stockMaths.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "generate-doc": "typedoc"
@@ -12,11 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "@polygon.io/client-js": "^3.0.0",
+    "axios": "^0.25.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongodb": "^4.2.0"
+    "mongodb": "^4.2.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
